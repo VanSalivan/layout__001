@@ -4,3 +4,33 @@
 @include font("Lato", "Lato-Regular", "400", "normal");
 @include font("Montserrat", "Montserrat-Bold", "700", "normal");
 @include font("Montserrat", "Montserrat-Regular", "400", "normal");
+
+// Для обьявления переменной $имя_переменной: значение
+// $переменная_1: red;
+// $переменная_2: 100px;
+
+// Для создания шаблона %имя_шаблона { color:red }
+
+// %шаблон_red{
+//     color: red;
+//     font-size: 15px;
+// }
+
+// Для использования шаблона @extend %имя_шаблона;
+
+// .class {
+//     display: flex;
+//     @extend %шаблон_red;
+// }
+
+// Для создания миксина @mixin имя_миксина() {  }
+// @mixin block_a ($переменная_1, $переменная_2) {
+//     color: $переменная_1;
+//     font-size: $переменная_2;
+// }
+
+// // Для подключения миксина @include block_a ($переменная_1, $переменная_2)
+// .class {
+//     display: none;
+//     @include block_a (green, 150)
+// }

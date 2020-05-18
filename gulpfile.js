@@ -104,7 +104,7 @@ function js() {
 function images() {
     return src(path.src.img)
         .pipe(webp({ // перевод в формат webp
-            quality: 70
+            quality: 90
         }))
         .pipe(dest(path.build.img)) // кладем полученный webp в папку
         .pipe(src(path.src.img)) // берем оригинальный файл

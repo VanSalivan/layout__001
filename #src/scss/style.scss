@@ -1,15 +1,379 @@
 @mixin font($font_name, $file_name, $weight, $style) {
-
-    @font-face {
-        font-family: $font_name;
-        font-display: swap;
-        src: url("../fonts/#{$file_name}.woff") format("woff"),
-        url("../fonts/#{$file_name}.woff2") format("woff2");
-        font-weight: #{$weight};
-        font-style: #{$style};
-    }
+  @font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff") format("woff"),
+    url("../fonts/#{$file_name}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
 }
 
+@import "reset";
 @import "fonts";
 // Миксин поключает файлы шрифтов
-//-------------------------------------------------------------------------
+//------------------------------------------------------------------------
+
+//------ Common -------------
+body {
+  font-family: Lato;
+  color: #414141;
+}
+
+.section-wrap {}
+
+.section-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.description-item {
+  &__title {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: bold;
+    margin-bottom: 14px;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: lighter;
+    color: #6c6c6c;
+  }
+
+  &__icon {
+    margin-bottom: 20px;
+  }
+}
+
+@mixin start-button {
+  font-family: "Montserrat";
+  display: inline-block;
+  font-size: 18px;
+  padding: 16px 50px;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.button-on {
+  @include start-button;
+
+  color: #ffff;
+  border: none;
+  background: linear-gradient(to right, #fe985b, #fe4Fa7);
+
+}
+
+.button-off {
+  @include start-button;
+
+  color: #414141;
+  border: 1px solid #414141;
+  background: #ffffff;
+}
+
+.button-free {
+  @include start-button;
+
+  color: #414141;
+  border: none;
+  background: #ffffff;
+
+}
+
+//------ /Common ------------
+
+//------ HEADER -------------
+.section-header {
+  color: #ffffff;
+  background: url('../img/Bitmap.webp') no-repeat 50% 50%;
+  background-size: cover;
+  position: relative;
+
+  .section-inner {
+    height: 100vh;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #142729;
+    opacity: 0.6;
+    z-index: 5;
+  }
+
+  &-logo {
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 35px;
+    flex-shrink: 1;
+  }
+
+  &-content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  &-wrapper {
+    margin: 0 auto;
+
+    &__title {
+      text-align: center;
+      font-weight: bold;
+      font-size: 56px;
+      line-height: 60px;
+      margin-bottom: 16px;
+    }
+
+    &__subtitle {
+      width: 75%;
+      font-family: "Montserrat";
+      text-align: center;
+      font-size: 18px;
+      line-height: 32px;
+      margin: 0 auto 44px;
+    }
+
+    &__form {
+      display: flex;
+
+      &-input {
+        flex: 1;
+        padding-right: 40px;
+
+        input {
+          width: 100%;
+          font-family: "Montserrat";
+          font-size: 16px;
+          padding: 17px 0px 17px 20px;
+          background: rgba(255, 255, 255, .25);
+          color: #ffff;
+          border: none;
+          border-radius: 4px;
+          outline: none;
+
+          &::placeholder {
+            color: #ffff;
+          }
+        }
+      }
+
+      &-button {}
+    }
+  }
+}
+
+//------ /HEADER ------------
+
+//------ PROMO --------------
+.section-promo {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.section-promo-1 {
+  display: flex;
+
+  &__content,
+  &__video {
+    flex-basis: 50%;
+  }
+
+  &__content {
+    padding-right: 90px;
+
+    .title {
+      font-size: 34px;
+      line-height: 51px;
+      font-weight: bold;
+      margin-bottom: 56px;
+    }
+
+    .description-item {
+      margin-top: 28px;
+    }
+  }
+
+  &__video {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.section-promo-2 {
+  display: flex;
+  padding-top: 86px;
+  margin-top: 120px;
+  border-top: 1px solid #e2e2e2;
+  text-align: center;
+
+  .description-item+.description-item {
+    margin-left: 40px;
+
+  }
+}
+
+//------ /PROMO -------------
+
+//------ FOUNDER ------------
+.section-founder {
+  background: #f6fafd;
+  padding-top: 34px;
+
+  .section-inner {
+    display: flex;
+  }
+
+  &__img {
+    align-self: flex-end;
+  }
+
+  &__content {
+    align-self: center;
+    padding-left: 50px;
+    padding-right: 50px;
+
+    &-text {
+      font-family: "Montserrat";
+      font-size: 24px;
+      line-height: 40px;
+    }
+
+    &-name {
+      margin-top: 31px;
+      font-size: 24px;
+      line-height: 29px;
+      font-weight: bold;
+    }
+
+    &-post {
+      font-size: 20px;
+      line-height: 29px;
+    }
+  }
+}
+
+//------ / FOUNDER ----------
+
+//------ PRICE --------------
+.section-price {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  text-align: center;
+
+  &__title {
+    font-size: 36px;
+    line-height: 51px;
+    font-weight: bold;
+  }
+
+  &__subtitle {
+    width: 50%;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: lighter;
+    margin: 0 auto 80px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+
+    &-item {
+      flex-basis: 370px;
+      padding: 45px 60px;
+
+      &_title {
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 26px;
+      }
+
+      &_price {
+        margin-bottom: 26px;
+
+        .price-color-big {
+          color: #fe4fa7;
+          font-size: 72px;
+          line-height: 86px;
+          font-weight: bold;
+        }
+
+        .price-color-small {
+          font-size: 14px;
+          line-height: 17px;
+          font-weight: bold;
+        }
+      }
+
+      &_description {
+        font-size: 14px;
+        line-height: 28px;
+        font-weight: lighter;
+        margin-bottom: 50px;
+      }
+
+      &_button {}
+
+      &.active {
+        background: #f6fafd;
+      }
+    }
+
+  }
+}
+
+//-----/ PRICE --------------
+
+//------ STARTED ------------
+.section-started {
+  text-align: center;
+  background: linear-gradient(to right, #fe985b, #fe4Fa7);
+  color: #ffffff;
+  padding-top: 120px;
+  padding-bottom: 120px;
+
+  &__title {
+    font-size: 55px;
+    line-height: 60px;
+    font-weight: bold;
+    margin-bottom: 26px;
+  }
+
+  &__text {
+    font-family: "Montserrat";
+    width: 50%;
+    margin: 0 auto 40px;
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+//-----/ STARTED ------------
+
+//------ FOOTER -------------
+.section-footer {
+  &__logo {}
+  &__nav {}
+  &____copyright_and_links {
+    &-copyright{}
+    &-links{}
+  }
+}
+
+//-----/ FOOTER -------------
