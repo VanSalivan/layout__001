@@ -15,16 +15,31 @@
 //------------------------------------------------------------------------
 
 //------ Common -------------
-body {
+$screen-iphone: 320px;
+$screen-phone: 576px;
+$screen-tablet: 768px;
+$screen-desktop: 992px;
+$screen-large-desktop: 1200px;
+
+$screen-iphone-max: 575px;
+$screen-phone-max: 767px;
+$screen-tablet-max: 991px;
+$screen-desktop-max: 1199px;
+
+body {  
   font-family: Lato;
   color: #414141;
 }
 
-.section-wrap {}
-
 .section-inner {
   max-width: 1180px;
   margin: 0 auto;
+}
+
+.section-wrap {
+  padding-right: 20px;
+  padding-left: 20px;
+
 }
 
 .description-item {
@@ -57,21 +72,29 @@ body {
   cursor: pointer;
 }
 
-.button-on {
+.button-one {
   @include start-button;
 
   color: #ffff;
   border: none;
   background: linear-gradient(to right, #fe985b, #fe4Fa7);
 
+  &:hover {
+    background: linear-gradient(to right, #fe4Fa7, #fe985b);
+  }
 }
 
-.button-off {
+.button-two {
   @include start-button;
 
   color: #414141;
   border: 1px solid #414141;
   background: #ffffff;
+
+  &:hover {
+    color: #fe4Fa7;
+    border: 1px solid #fe4Fa7;
+  }
 }
 
 .button-free {
@@ -162,14 +185,17 @@ body {
           border: none;
           border-radius: 4px;
           outline: none;
+          transition: 0.2s;
 
           &::placeholder {
             color: #ffff;
           }
+
+          &:focus{
+            background: rgba(255, 255, 255, .5);
+          }
         }
       }
-
-      &-button {}
     }
   }
 }
@@ -191,7 +217,6 @@ body {
   }
 
   &__content {
-    padding-right: 90px;
 
     .title {
       font-size: 34px;
@@ -206,10 +231,28 @@ body {
   }
 
   &__video {
+
     img {
       width: 100%;
       height: auto;
     }
+
+  }
+
+  @media (max-width: $screen-phone-max) {
+    flex-direction: column;
+
+    &__video {
+      order: -1;
+      margin-bottom: 20px;
+    }
+  }
+
+  @media (min-width: $screen-tablet) {
+    &__content {
+      padding-right:90px;
+    }
+
   }
 }
 
@@ -260,6 +303,7 @@ body {
     }
 
     &-post {
+      margin-bottom: 30px;
       font-size: 20px;
       line-height: 29px;
     }
@@ -328,8 +372,6 @@ body {
         margin-bottom: 50px;
       }
 
-      &_button {}
-
       &.active {
         background: #f6fafd;
       }
@@ -357,10 +399,15 @@ body {
 
   &__text {
     font-family: "Montserrat";
-    width: 50%;
     margin: 0 auto 40px;
     font-size: 20px;
     line-height: 30px;
+  }
+
+  @media (min-width: $screen-desktop) {
+    &__text {
+      width: 50%;
+    }
   }
 }
 
@@ -368,12 +415,65 @@ body {
 
 //------ FOOTER -------------
 .section-footer {
-  &__logo {}
-  &__nav {}
-  &____copyright_and_links {
-    &-copyright{}
-    &-links{}
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  &__logo {
+    text-align: center;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  &__nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 75px;
+    li {
+      & + li{
+        margin-left: 60px;
+      }
+      a {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color:#464646;
+        transition: 0.2s;
+
+        &.active,
+        &:hover{
+          color:#fe50a6;
+        }
+      }
+    }
+  }
+
+  &__copyright_and_links {
+    font-family: "Montserrat";
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    line-height: 18px;
+    color:#464646;
+  
+    @media (min-width: $screen-large-desktop) {
+      width: 60%;
+      margin: 0 auto;
+    }
+  
   }
 }
 
+.helper-links{
+  display: flex;
+
+  li + li{
+      margin-left: 20px;
+    }
+
+  a:hover{
+    text-decoration: underline;
+  }
+}
 //-----/ FOOTER -------------
