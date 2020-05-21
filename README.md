@@ -1,4 +1,4 @@
-# [ Simply Lending ](https://vansalivan.github.io/lending-page-1/)
+# [Посмотреть Lending ](https://vansalivan.github.io/lending-page-1/)
 # Версия разработки находится в ветке "dev"
 # При создании использовался сборщик GULP и препроцессор SCSS/SASS
 ### Responsive Breakpoints
