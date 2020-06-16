@@ -1,4 +1,5 @@
-# [Посмотреть Lending #2](https://vansalivan.github.io/lending-page-1/)
+# [Посмотреть Lending #1](https://vansalivan.github.io/lending-page-1/)
+- Задача: освоение технологий - SCSS/SASS, Gulp, методологии БЭМ;
 ### Функционал:
 - Адаптивная и кроссбраузерная верстка (Chrome, Mozilla, Opera);
 - Использование препроцессора SCSS/SASS;
